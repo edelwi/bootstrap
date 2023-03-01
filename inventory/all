@@ -13,5 +13,5 @@ ansible_python_interpreter=/usr/bin/python3
 #[private]
 #youstat ansible_host=alco.yourdomain.com contact_email=
 
-#[rockstat]
-#youstat
+[rockstat]
+serv1602
