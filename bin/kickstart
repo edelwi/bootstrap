@@ -8,7 +8,7 @@ BOOTSTRAP_REPO=https://github.com/rockstat/bootstrap.git
 BOOTSTRAP_DIR=/srv/platform/bootstrap
 BOOTSTRAP_BINDIR=${BOOTSTRAP_DIR}/bin
 KICKSTART=${BOOTSTRAP_BINDIR}/kickstart
-KICKSTART_CMD="curl -s https://raw.githubusercontent.com/rockstat/bootstrap/${BOOTSTRAP_BRANCH}/bin/kickstart?$TIMESTAMP | sudo -E bash -\n"
+KICKSTART_CMD="curl -s https://raw.githubusercontent.com/edelwi/bootstrap/${BOOTSTRAP_BRANCH}/bin/kickstart?$TIMESTAMP | sudo -E bash -\n"
 BINALIAS=/usr/local/bin/rockstat
 REPORT_COLLECTOR=https://bolt.rstat.org/upload
 INSTALL_LOG=$(mktemp /tmp/platform-setup.XXXXXXXX)
@@ -278,7 +278,7 @@ ANS_BRANCH="-e branch=${BOOTSTRAP_BRANCH}"
 run_platform_playbook() { # (tags, custom)
   setup_playbook
   print_status "Starting ansible"
-  cmd="platform.yml --connection=local --tags=${1} $ANS_PY $ANS_BRANCH ${2}"
+  cmd="platform.yml -vvv --connection=local --tags=${1} $ANS_PY $ANS_BRANCH ${2}"
   echo "executing ansible-playbook ${cmd}"
   ansible-playbook $cmd
   if [ $? -eq 0 ]; then print_status "Done"; else print_error "FAILED"; exit 1; fi
