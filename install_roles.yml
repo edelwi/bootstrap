@@ -1,5 +1,5 @@
 # install_roles.yml
-- src: https://github.com/madiedinro/ansible-server-role
+- src: https://github.com/edelwi/ansible-server-role
   version: master
   name: dr.server
 
